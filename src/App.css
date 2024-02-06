@@ -1,0 +1,9 @@
+html{
+    scroll-snap-type: block proximity;
+    scroll-behavior: smooth;
+    scroll-padding-top: 50px;
+}
+.snap > div{
+    scroll-snap-align: start;
+    scroll-snap-stop:always ;
+}

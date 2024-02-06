@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+/* First Fold */
+    .firstPage{
+        @apply h-[100vh] w-full relative flex justify-center pt-20  mainBgColor z-0
+    }
+    .tv{
+        @apply flex flex-col justify-center items-center gap-10 absolute  h-[40%] p-2 shadow-lg min-w-[400px] w-[50%] p-[24px] whiteColor rounded-lg
+    }
+    .projNavigationContainer{
+        @apply flex relative flex-col justify-center items-center
+    }
+    .projectNavigationFluid{
+        @apply flex h-[600px] absolute bottom-0 gap-4 items-end justify-around overflow-hidden z-10
+    }
+    .projectNavigationBg{
+        @apply projects-holder min-h-[80px] min-w-[100vw] flex justify-between items-center absolute bottom-0 w-full
+    }
+    .iconContainer1{
+        @apply cursor-pointer w-10 min-h-10 bg-white rounded-full z-10
+    }
+    .iconContainer2{
+        @apply cursor-pointer w-10 h-10 bg-white rounded-full hover:bg-[#0044D7] z-10
+    }
+    /* second Fold */
+
+    .page2{
+        @apply h-[150vh] mt-2 w-[100vw] flex relative
+    }
+    .projectsContainer2{
+        @apply sticky top-0 projects-holder m-2  h-[100vh]  flex flex-col justify-center items-center 
+    }
+    .projectsFluid2{
+        @apply flex h-[600px] w-[100vw] items-center gap-4 items-center justify-around overflow-hidden z-10
+    }
+
+    .btn {
+        @apply bg-black text-white py-2 px-4 rounded-md
+
+    }
+    .mainBgColor{
+        background-color: #1F292B
+    }
+    .mainTextColor{
+        color: #1F292B
+    }
+    .whiteColor{
+        background-color: #F9F8FD
+    }
+    .whiteText{
+        color: #F9F8FD
+    }
+    .primaryColor{
+        background-color: #0044D7;
+    }
+    .primaryTextColor{
+        color: #0044D7
+    }
+    .highlightColor{
+        background-color: #D0826B
+
+    }
+    .highlightTextColor{
+        color: #D0826B
+    }
+    .project{
+      
+        
+    }
+    .projects-holder{
+        border-radius: 47px;
+        background: rgba(217, 217, 217, 0.50);
+        width: 100%;
+        height: 128px;
+        
+        
+    }
+    .snap {
+        scroll-snap-type: y mandatory; /* Enable vertical scrolling and snap */
+      }
+      
+      .snap > div {
+        scroll-snap-align: start; /* Define snap points for the children of your-div */
+      }
+}
