@@ -36,6 +36,92 @@
     .projectsFluid2{
         @apply flex h-[600px] w-[100vw] items-center gap-4 items-center justify-around overflow-hidden z-10
     }
+/* third Fold */
+    .scrollingListItem{
+        @apply  text-[18px] text-white font-bold text-slate-300 
+    }
+    
+    .scrollingList >ul{
+        /* @apply flex  gap-[20rem] w-[100vw]; */
+        
+        /* transform: translateX(100%); */
+    }
+    .scrollingList{
+        border-bottom: white solid 2px;
+        overflow: hidden;
+       max-width : 100vw;
+       width: 100vw;
+        -webkit-mask: linear-gradient(90deg,transparent, white 20%,white 80%,transparent);
+        mask: linear-gradient(90deg,transparent, white 20%,white 80%,transparent);
+        @apply flex 
+    }
+    .scrollingList[data-animated="true"]>ul{
+       flex-wrap:nowrap !important; 
+       animation: scroll 15s linear infinite;
+       width:max-content;
+       min-width: none;
+    }
+    .scrollingList > ul>div{
+        /* background: #000; */
+        
+        @apply flex justify-around py-[2rem] w-[200vw] ;
+        /* gap:calc(100vw/4); */
+        
+        
+
+    }
+    .scrollingList > ul>.ux{
+        /* background: #000; */
+        
+        @apply flex py-[2rem] w-[200vw] ;
+        /* gap:calc(100vw/2) !important;    */
+        
+        
+
+    }
+    .scrollingList[data-animated="true"]>.uxscroller{
+       flex-wrap:nowrap !important; 
+       animation: scroll 10s linear infinite;
+       width:max-content;
+       min-width: none;
+    }
+    .scrollingList[data-animated="true"]>.backendScroller{
+       flex-wrap:nowrap !important; 
+       animation: scrollBackend 20s linear infinite;
+       width:max-content;
+       min-width: none;
+    }
+    
+    /* .scrollingList[data-animated="true"]>.backendScroller{
+       flex-wrap:nowrap !important; 
+       animation: scrollBackend 24s linear infinite;
+       width:max-content;
+       min-width: none;
+       gap:30rem
+    }
+    .backend{
+        gap:30rem !important; 
+}  */
+    
+    @keyframes scroll{
+        to{
+            transform: translate(calc(-50%));
+        }
+    }
+    @keyframes scrollUx{
+        to{
+            transform: translate(calc(-50% ));
+        }
+    }
+    @keyframes scrollBackend{
+        to{
+            transform: translate(calc(-50% ));
+        }
+    }
+    .gradientRed{
+        background: linear-gradient(90deg, #1F292B 0%, #1F292B 50%, #D0826B 50%, #D0826B 100%);
+        
+    }
 
     .btn {
         @apply bg-black text-white py-2 px-4 rounded-md
@@ -84,5 +170,9 @@
       
       .snap > div {
         scroll-snap-align: start; /* Define snap points for the children of your-div */
+      }
+      .card{
+        @apply w-[100vw] sm:w-[50vw] min-w-[500px]  h-[30vh] min-h-[200px]  rounded-lg;
+        
       }
 }

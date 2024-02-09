@@ -5,10 +5,7 @@ import {motion} from 'framer-motion'
 const ProjectsCarousel = ({projects,num,setNum,scalex,scaley,leftClick,rightClick,classname,scrollYValue,isInTransition,doneScrolling}) => {
   
     
-    useEffect(()=>{
-        console.log(doneScrolling)
-        // console.log(handleLocation(num))
-    },[doneScrolling])
+    
     const projectRefs=useRef([])
     // useEffect(()=>{
     //     if(projectRefs[0].current){
@@ -18,7 +15,7 @@ const ProjectsCarousel = ({projects,num,setNum,scalex,scaley,leftClick,rightClic
 
    
     const handleLocation=(projectNum)=>{
-        // console.log(projectNum)
+        
         if(projectNum===num){
             if(doneScrolling){
                 return "doneScrollingBig"
@@ -56,7 +53,7 @@ const ProjectsCarousel = ({projects,num,setNum,scalex,scaley,leftClick,rightClic
   return (
     <div  className={`flex w-[90vw] h-[90%]  justify-center ${classname}`}>
         {projects.map((project,index,arr)=>{
-            console.log(handleLocation(index))
+            (handleLocation(index))
             return(
                 // <div className='w-full h-full'>
                 <motion.div  ref={(refs)=>(projectRefs.current[index]=refs)} key={index} variants={{

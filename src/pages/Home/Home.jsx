@@ -1,14 +1,18 @@
 import React from "react";
-import ProjectsCarousel from "../components/ProjectsCarousel";
+import ProjectsCarousel from "../../components/ProjectsCarousel";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLeftLong, faRightLong } from "@fortawesome/free-solid-svg-icons";
-import { useGlobalContext } from "../context/GlobalContext";
+import { useGlobalContext } from "../../context/GlobalContext";
 import { useAnimationControls } from "framer-motion";
 // import {icon} from '@fortawesome/fontawesome-svg-core/import.macro'
 import { useEffect, useRef } from "react";
 import { useScroll, useTransform } from "framer-motion";
 import { motion, useInView, useMotionValueEvent } from "framer-motion";
+import Tv from "./Tv";
+import InfiniteScroll from "../InfiniteScroll";
+import ThirdFold from "./ThirdFold";
+import FourthFold from "./FourthFold";
 
 const Home = () => {
   //First and last two need to be in twice
@@ -102,7 +106,7 @@ const Home = () => {
   const scaley = useTransform(scrollYProgress, [0, 1], ["46%", "106%"]);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log(scale);
+    // console.log(scale);
     if (latest > 0) {
       setIsInTransition(true);
     } else {
@@ -140,22 +144,9 @@ const Home = () => {
   }, []);
   return (
     <div className=" relative w-[100vw]">
+      
       <main ref={firstPageref} className="firstPage ">
-        <div className="absolute max-h-[240px] z-50 w-[90%] text-center p-5 gap-2 rounded-lg flex flex-col h-fit bg-[#f5f5f5] sm:tv  overflow-y-auto">
-          <img></img>
-          <p className="mainTextColor text-[12px]">
-            I am a freelance UX/UI designer and full stack software developer. I
-            specialize in developing online services from the ground up. From
-            ideation to proto-type. Help me get started building your dream
-            product!{" "}
-          </p>
-
-          <p className="mainTextColor text-[12px]">
-            My skills include <span className="font-bold">Figma</span> prototyping, <span className="font-bold">React</span> Front-End dev., <span className="font-bold">Java </span>
-            Springboot backend dev.
-          </p>
-          <button className="btn ">contact me</button>
-        </div>
+       <Tv></Tv>
 
         <motion.div
           style={doneScrolling ? { visibility: "hidden" } : {}}
@@ -229,7 +220,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div></div>
+     <ThirdFold> </ThirdFold>
+     <FourthFold ></FourthFold>
+
     </div>
   );
 };
