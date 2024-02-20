@@ -1,11 +1,12 @@
 import React,{useRef,useState} from 'react'
 import InfiniteScroll from '../InfiniteScroll'
-import { useMotionValueEvent, useScroll } from 'framer-motion';
+import { useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import {motion} from 'framer-motion'
 
 const ThirdFold = () => {
     const scrollRef = useRef(null)
     const {scrollYProgress} = useScroll({target: scrollRef, offset: ["start start", "end end"]});
+    const x = useTransform(scrollYProgress,[0,1],[0,100])
     const [startAnimation,setStartAnimation] = useState(false)
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
         console.log(latest)
@@ -27,6 +28,9 @@ const ThirdFold = () => {
     <InfiniteScroll></InfiniteScroll>
     <p className='text-center text-3xl whiteText'>Skills</p>
     <p className='text-center  whiteText'>{startAnimation?<span>scrollup</span>:<span>scrolldown</span>}</p>
+    <div className=' w-full h-full flex justify-center '>
+      <motion.div style={{scaleX:x}} transition={{duration:1}} className='bg-blue-200 opacity-20 w-[1%] h-[10px] m-2'></motion.div>
+    </div>
     <motion.div initial={{translateX:0}} animate={startAnimation?{translateX:"-50%"}:{translateX:"0%"}} transition={{duration:1}} className='flex absolute top-[50%] translate-y-[-50%] left-0 '>
     <div className='w-[100vw] h-[300px] flex justify-center gap-4  z-20'>
         <motion.div drag
